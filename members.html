@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض الأعضاء</title>
+</head>
+<body>
+
+<?php
+// معلومات الاتصال بقاعدة البيانات
+$servername = "localhost";
+$username = "root";
+$password = "01033744372@";
+$dbname = "systemalabtal";
+
+// إنشاء الاتصال
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// التحقق من الاتصال
+if ($conn->connect_error) {
+    die("فشل الاتصال: " . $conn->connect_error);
+}
+
+// استعلام SQL لاسترجاع الأعضاء
+$sql = "SELECT * FROM members";
+$result = $conn->query($sql);
+
+// التحقق من نجاح الاستعلام
+if (!$result) {
+    die("خطأ في الاستعلام: " . $conn->error);
+}
+
+// التحقق من وجود نتائج للاستعلام
+if ($result->num_rows > 0) {
+    echo "<h2>قائمة الأعضاء</h2>";
+    echo "<table border='1'>";
+    echo "<tr><th>رقم العضو</th><th>الاسم</th><th>تاريخ الميلاد</th><th>الرقم القومي</th><th>العمر</th><th>الجنس</th><th>النشاط</th><th>العنوان</th><th>رقم الهاتف</th><th>صورة شخصية</th><th>تاريخ بداية القيد</th></tr>";
+    // عرض البيانات في الجدول
+    while($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row["MemberID"] . "</td>";
+        echo "<td>" . $row["Name"] . "</td>";
+        echo "<td>" . $row["DateOfBirth"] . "</td>";
+        echo "<td>" . $row["NationalID"] . "</td>";
+        echo "<td>" . $row["Age"] . "</td>";
+        echo "<td>" . $row["Gender"] . "</td>";
+        echo "<td>" . $row["Activity"] . "</td>";
+        echo "<td>" . $row["Address"] . "</td>";
+        echo "<td>" . $row["PhoneNumber"] . "</td>";
+        echo "<td><img src='" . $row["ProfilePicture"] . "' width='100' height='100'></td>";
+        echo "<td>" . $row["MembershipStartDate"] . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+} else {
+    echo "<p>لا يوجد أعضاء</p>";
+}
+
+// إغلاق الاتصال بقاعدة البيانات
+$conn->close();
+?>
+
+</body>
+</html>
