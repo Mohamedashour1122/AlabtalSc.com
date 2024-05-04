@@ -1,0 +1,81 @@
+/* General styles */
+.rgrid_container_mortage {
+  background-color: #ffffff;
+  padding: 54px;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px 0 rgba(134, 134, 134, 0.08);
+}
+
+@media only screen and (max-width: 767px) {
+  .rgrid_container_mortage {
+    padding: 15px;
+  }
+}
+
+/* Component-specific styles */
+[data-component-r^="formStep"] {
+  text-align: left;
+}
+
+[data-component-r^="formStep"] h3 {
+  margin-top: 0px;
+  font-weight: bold;
+}
+
+[data-component-r^="formStep"] .rtitle-accordotion {
+  color: #ea600e;
+  margin-bottom: 32px;
+  cursor: pointer;
+}
+
+[data-component-r^="formStep"] .rtitle-accordotion span {
+  color: #858585;
+}
+
+[data-component-r^="formStep"] .rtitle-accordotion .icon {
+  border: 1px solid #e6e6e6;
+  border-radius: 50%;
+  font-size: 9px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  line-height: 19px;
+  text-align: center;
+  margin-left: 5px;
+}
+
+[data-component-r^="formStep"] .rtitle-accordotion .icon.inverted {
+  display: inline-block;
+  transform: scaleY(-1);
+}
+
+[data-component-r^="formStep"] [data-accordion=detail] {
+  margin-bottom: 32px;
+}
+
+[data-component-r^="formStep"] [data-accordion=detail] .accordion-txt {
+  color: #858585;
+  font-size: 14px;
+  line-height: 1.29;
+}
+
+/* Add more styles for other components as needed */
+
+/* Thank you page styles */
+.r-thankyou-page {
+  /* Add styles for thank you page */
+}
+
+/* Media queries */
+@media only screen and (max-width: 767px) {
+  /* Add responsive styles */
+}
+
+/* Additional utility classes */
+.fix-long-placeholder {
+  overflow: hidden;
+  padding-right: 0;
+  border-right: 6px white solid;
+  margin-right: 0;
+}

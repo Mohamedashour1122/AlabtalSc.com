@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إحصائيات النظام</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>إحصائيات النظام</h1>
+    <div id="statistics">
+        <p>جاري التحميل...</p>
+    </div>
+
+    <script>
+        // استخدام jQuery لجلب بيانات الإحصائيات من ملف PHP
+        $.getJSON('get_statistics.php', function(data) {
+            // عرض البيانات في الواجهة
+            $('#statistics').html('<p>عدد الأعضاء: ' + data.totalMembers + '</p><p>عدد الفعاليات: ' + data.totalEvents + '</p>');
+        });
+    </script>
+</body>
+</html>
